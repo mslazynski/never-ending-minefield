@@ -5,14 +5,12 @@
  * @author mwypych, @date 10.11.16 01:12
  */
 
-import org.scalatest.FunSuite
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
+import org.scalatest._
 
-@RunWith(classOf[JUnitRunner])
-class LibrarySuite extends FunSuite {
-  test("someLibraryMethod is always true") {
-    def library = new Library()
-    assert(library.someLibraryMethod)
+class LibrarySpec extends FlatSpec with Matchers {
+
+  "A Library" should "return true" in {
+    val library = new Library
+    library.someLibraryMethod() should be(true)
   }
 }
