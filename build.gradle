@@ -20,6 +20,9 @@ apply plugin: 'scala'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
+ext {
+    classname = 'Library'
+}
 
 // In this section you declare where to find the dependencies of your project
 repositories {
