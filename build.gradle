@@ -19,6 +19,7 @@ apply plugin: 'scalajs-plugin'
 apply plugin: 'scala'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: 'distribution'
 
 ext {
     classname = 'Library'
@@ -35,6 +36,8 @@ repositories {
 dependencies {
     // We use Scala 2.11 in our library project
     compile 'org.scala-lang:scala-library:2.11.8'
+    //compile 'com.lihaoyi:scalatags_sjs0.6_2.12:0.6.2'
+
 
     // We use Scalatest for testing our library
     testCompile 'junit:junit:4.12'
@@ -42,3 +45,22 @@ dependencies {
     testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.5'
     testRuntime 'org.pegdown:pegdown:1.6.0'
 }
+
+distributions {
+    fastJs {
+        baseName = 'fastJs'
+        def jsFile = file(buildDir.path+'/js/never-ending-minefield_fastopt.js')
+        def indexFile = file('src/dist/index.html')
+        println jsFile
+        println indexFile
+        contents {
+            from { jsFile }
+            from { indexFile }
+        }
+    }
+}
+
+installFastJsDist.dependsOn FastOptJS
+fastJsDistZip.dependsOn FastOptJS
+fastJsDistTar.dependsOn FastOptJS
+
