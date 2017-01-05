@@ -1,15 +1,13 @@
 import scala.scalajs.js.JSApp
-//import scalatags.JsDom.all._
+import org.scalajs.dom
+import scalatags.JsDom.all._
 
 object Library extends JSApp {
 
-   def h1(str: String) :String = {
-     "<h1>"+str+"</h1>"
-   }
-
-
    def main(): Unit = {
-     println(h1("Hello World!"))
-}
+      val message = "Hello World"
+      println(message)
+      dom.document.getElementById("message-box").innerHTML = message 
+   }
 
 }

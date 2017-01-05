@@ -36,7 +36,7 @@ repositories {
 dependencies {
     // We use Scala 2.11 in our library project
     compile 'org.scala-lang:scala-library:2.11.8'
-    //compile 'com.lihaoyi:scalatags_sjs0.6_2.12:0.6.2'
+    compile 'com.lihaoyi:scalatags_sjs0.6_2.11:0.6.1'
 
 
     // We use Scalatest for testing our library
@@ -51,8 +51,6 @@ distributions {
         baseName = 'fastJs'
         def jsFile = file(buildDir.path+'/js/never-ending-minefield_fastopt.js')
         def indexFile = file('src/dist/index.html')
-        println jsFile
-        println indexFile
         contents {
             from { jsFile }
             from { indexFile }
