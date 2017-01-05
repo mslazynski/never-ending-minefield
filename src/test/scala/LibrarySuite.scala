@@ -9,8 +9,7 @@ import org.scalatest._
 
 class LibrarySpec extends FlatSpec with Matchers {
 
-  "A Library" should "return true" in {
-    val library = new Library
-    library.someLibraryMethod() should be(true)
+  "This test" should "fail" in {
+    fail()
   }
 }
